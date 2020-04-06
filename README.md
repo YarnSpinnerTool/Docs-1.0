@@ -18,3 +18,4 @@ Yarn Spinner Documentation, (c) 2020-present Secret Lab Pty Ltd and Yarn Spinner
 
 The contents of this repository, unless otherwise noted, are licensed under a [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
 
+Portions of this repository from "[Night in the Woods](http://nightinthewoods.com)", courtesy of Infinite Fall and Finji LLC. All rights reserved.
