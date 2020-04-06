@@ -1,0 +1,11 @@
+# This pipeline has no stages; instead, it exists to trigger 
+# the pipeline that builds and deploys yarnspinner.dev.
+
+trigger:
+- master
+- develop
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+stages: []
