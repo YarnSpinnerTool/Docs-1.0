@@ -1,9 +1,12 @@
 # This pipeline has no stages; instead, it exists to trigger 
 # the pipeline that builds and deploys yarnspinner.dev.
+#
+# This pipeline triggers when the 'master' branch is pushed 
+# to. This means that pushing to 'develop' will not trigger 
+# any changes to yarnspinner.dev.
 
 trigger:
 - master
-- develop
 
 pool:
   vmImage: 'ubuntu-latest'
