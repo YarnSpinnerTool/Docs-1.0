@@ -1,4 +1,4 @@
-# Yarn Spinner Documentation Source#
+# Yarn Spinner Documentation Source
 
 This repository contains the documentation for [Yarn Spinner](https://yarnspinner.dev). The contents of this repository are used to drive the contents of the site.
 
