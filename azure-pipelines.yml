@@ -8,4 +8,5 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
-stages: []
+steps:
+  - script: echo "Hello from the CI server."
