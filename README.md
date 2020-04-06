@@ -1,29 +1,16 @@
 # README #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+This repository contains the documentation for [Yarn Spinner](https://yarnspinner.dev).
 
-### What is this repository for? ###
+We welcome contributions! Please feel free to send pull requests to help make our documentation better.
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+## Notes
 
-### How do I get set up? ###
+When the `master` branch of this repository is modified, the site at [yarnspinner.dev](https://yarnspinner.dev) will be updated (generally within about 15 minutes.) The contents of the `/docs` folder in this repo will be used to populate the `/docs` pages on the site.
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+`yarnspinner.dev` is built using [Hugo](https://gohugo.io). Check the Hugo documentation for how to create pages.
 
-### Contribution guidelines ###
+## License
 
-* Writing tests
-* Code review
-* Other guidelines
+Yarn Spinner Documentation, (c) 2020-present Secret Lab Pty Ltd and Yarn Spinner contributors.
 
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
