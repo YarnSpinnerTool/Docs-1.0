@@ -331,7 +331,7 @@ The subexpressions can further broken up into other expression if needed:
 
 Yarn Spinner supports the following logical operators and most have multiple ways being written:
 
-- Equality: `eq` or `==`
+- Equality: `eq` or `is` or `==`
 - Inequality: `neq` or `!`
 - Greater than: `gt` or `>`
 - Less than: `lt` or `<`
