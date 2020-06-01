@@ -5,10 +5,11 @@ tags: []
 summary: "Learn how to use a text editor, like Visual Studio Code or Sublime Text, to write Yarn Spinner content."
 draft: false
 toc: true
+dont_show_in_lists: true
 weight: 7
 menu: 
     docs:
-        parent: "writing"
+        parent: "editor"
 ---
 
 Yarn files are plain text files, which means you can use any text editor you like to work with them. This can be useful if you're want to use the same editor or integrated development environment that you use to work on other parts of your game.

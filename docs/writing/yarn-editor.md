@@ -5,10 +5,11 @@ tags: []
 summary: "Learn how to work with the Yarn Editor, a visual tool for writing dialogue in Yarn Spinner."
 draft: false
 toc: true
+dont_show_in_lists: true
 weight: 5
 menu: 
     docs:
-        parent: "writing"        
+        parent: "editor"        
 ---
 
 The [Yarn Editor](https://github.com/YarnSpinnerTool/YarnEditor) is a visual tool for writing dialogue for Yarn Spinner. It's free and open source, and works on Windows and macOS. You can also use the Yarn Editor in the browser.
