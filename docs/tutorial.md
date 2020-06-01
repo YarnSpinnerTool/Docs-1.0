@@ -28,29 +28,9 @@ Mae: True bros.
 
 Yarn Spinner will take each line, one at a time, and deliver them to the game. It's entirely up to the game to decide what to do with the lines; for example, the game that these lines are from, [Night in the Woods](http://nightinthewoods.com), displays them in speech bubbles, one character at a time, and waits for the user to press a button before showing the next one.
 
-## Installing Yarn Spinner
+### Installing Yarn Spinner
 
-Yarn Spinner supports both the UPM package and traditional `.unitypackage`.
-
-### Install via OpenUPM
-
-The package is available on the [openupm registry](https://openupm.com). It's recommended to install it via [openupm-cli](https://github.com/openupm/openupm-cli).
-
-```
-openupm add dev.secretlab.yarnspinner
-```
-
-### Install via Git URL
-
-Add below to your Packages/manifest.json
-
-```
-"dev.secretlab.yarnspinner": "https://github.com/favoyang/YarnSpinnerTool.git#upm"
-```
-
-### Install via traditional `.unitypackage`
-
-Download [the latest release](https://github.com/YarnSpinnerTool/YarnSpinner/releases/latest), then add it to your Unity project. You also need install textmeshpro manually.
+Before you get started, you'll need to install Yarn Spinner in your Unity project. To do this, go to the [installation]({{< ref "docs/unity/installing.md" >}}) instructions.
 
 ## Quick Start
 
