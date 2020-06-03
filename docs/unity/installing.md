@@ -3,6 +3,7 @@ title: "Installing Yarn Spinner for Unity"
 date: 2019-12-11T19:11:07+11:00
 tags: []
 draft: false
+toc: true
 summary: "Learn how to install Yarn Spinner in a Unity project."
 menu:
     docs:
