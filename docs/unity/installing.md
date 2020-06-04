@@ -50,8 +50,8 @@ If you're using Unity 2019.3 or later, you can add the package directly:
 
 {{< img "v1.1/installing-package-manager-git-url.png" "Adding a package using a Git URL." >}}
 
-3. Enter the following URL: **`https://github.com/YarnSpinnerTool/YarnSpinner.git#upm`**.
-4. The project will download and install.
+1. Enter the following URL: **`https://github.com/YarnSpinnerTool/YarnSpinner-Unity.git`**.
+2. The project will download and install.
 
 #### Unity 2018.4 to Unity 2019.2
 
@@ -60,12 +60,12 @@ If you're using an earlier version of Unity, you'll need to add the package by u
 * Go to the folder that your project is in.
 * Open the `Packages` folder.
 * Open the file `manifest.json` in your text editor (for example, Visual Studio Code.)
-* Update the file to include the following line (don't forget the comma at the end!):
+* Update the file to include the following line, highlighted in **bold** (don't forget the comma at the end!):
 
 <pre>
 <code class="json">{
   "dependencies": {
-    <b>"dev.secretlab.yarnspinner": "https://github.com/YarnSpinnerTool/YarnSpinner.git#upm",</b>
+    <b>"dev.yarnspinner.unity": "https://github.com/YarnSpinnerTool/YarnSpinner-Unity.git",</b>
     "com.unity.2d.sprite": "1.0.0",
     ...
 </code>
@@ -81,7 +81,7 @@ To download and install the file, follow these steps:
 
 1. In Unity, open the Window menu, and choose Package Manager.
 2. Select **Text Mesh Pro**, and click the Install button. (This package is required for Yarn Spinner to work.)
-3. Next, open your browser, and go to the [most recent release]({{< param githubUrl >}}/releases/latest) of Yarn Spinner on GitHub.
+3. Next, open your browser, and go to the [most recent release]({{< param githubUnityUrl >}}/releases/latest) of Yarn Spinner for Unity on GitHub.
 4. Download the `.unitypackage` for that release.
 
 {{< img "v1.0.1/download.png" "The release page on GitHub." >}}
