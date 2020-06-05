@@ -28,24 +28,22 @@ Mae: True bros.
 
 Yarn Spinner will take each line, one at a time, and deliver them to the game. It's entirely up to the game to decide what to do with the lines; for example, the game that these lines are from, [Night in the Woods](http://nightinthewoods.com), displays them in speech bubbles, one character at a time, and waits for the user to press a button before showing the next one.
 
-### Installing Yarn Spinner
-
-Before you get started, you'll need to install Yarn Spinner in your Unity project. To do this, go to the [installation]({{< ref "docs/unity/installing.md" >}}) instructions.
-
 ## Quick Start
 
-Open your Unity project, and starting the example game. We'll then make some changes to the example game.
+We'll start by creating an empty Unity project, installing Yarn Spinner, and then playing the example game. We'll then make some changes to the example game.
 
-If you installed via UPM, you can install the example game via the Package manager UI. Select the YarnSpinner, click the "Import in project" button. The example game are imported into your Assets folder at `/Assets/Samples/`.
+* **Unity 2018.4 users**: We recommend that you download the `.unitypackage` when reading this tutorial instead of using the Unity Package Manager, because you won't otherwise get the sample project. If you're using a later version of Unity, you can install it via the Package Manager or via a `.unitypackage`.
 
 ### Playing the example game
 
 We'll begin by playing the example game that comes with Yarn Spinner. It's very short - about 2 minutes long.
 
 1. **Create a new empty Unity project.** Choose the 2D template.
-1. **Download and install Yarn Spinner.** Head to the [download]({{< param  downloadUrl >}}) page, and download Yarn Spinner. Once you've downloaded Yarn Spinner, open the `.unitypackage` and add its contents to your game.
-1. **Open the example scene.** You'll find it in the `Yarn Spinner/Examples/Space` folder.
-1. **Play the game.** Use the left and right arrow keys to move, and the space bar to talk to characters.
+2. **Download and install Yarn Spinner.** Go to the [installation]({{< ref "docs/unity/installing.md" >}}) instructions, and follow the directions there.   
+3. **Open the example scene.** 
+   * If you installed Yarn Spinner via a `.unitypackage`, you'll find it in the `Yarn Spinner/Examples/Space` folder.
+   * If you installed Yarn Spinner the Package Manager, import the Space sample, and then find the scene in the `Samples/Yarn Spinner/<version>/Space` folder.
+4. **Play the game.** Use the left and right arrow keys to move, and the space bar to talk to characters.
 
 We're now ready to start looking under the hood, to see how Yarn Spinner powers this game.
 
