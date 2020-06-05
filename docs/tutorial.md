@@ -49,7 +49,7 @@ We're now ready to start looking under the hood, to see how Yarn Spinner powers 
 
 ### The Yarn Editor
 
-Yarn Spinner stores its dialogue in `.yarn` files. These are plain text files, which means you can edit them in any plain text editor ([Visual Studio Code](https://code.visualstudio.com) is a good option, and we offer a syntax highlighting extension to make it nice to use!)
+Yarn Spinner stores its dialogue in `.yarn` files. These are plain text files, which means you can edit them in any plain text editor ([Visual Studio Code](https://code.visualstudio.com) is a good option, and we offer a [syntax highlighting extension](https://marketplace.visualstudio.com/items?itemName=SecretLab.yarn-spinner) to make it nice to use!)
 
 <!-- Link to VS Code Extension -->
 
