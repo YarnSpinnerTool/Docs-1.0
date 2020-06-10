@@ -57,3 +57,18 @@ The new string table contains a copy of the base language; once you have it, you
 You can see the list of localisations that a Yarn Program has in the "Localizations" list in the Inspector.
 
 {{<img "/docs/unity/img/v1.1/yarn-program-add-language-inspector.png" "The list of languages for a Yarn Program." >}}
+
+## Voice Overs
+
+You can add voice over audio clips for every line in your Yarn asset. The list is filtered by the language selected in the dropdown menu right above the first line. The content of that dropdown menu is defined by the audio languages that have been added to YarnSpinner's project languages list.
+{{<img "/docs/unity/img/v2.0/voice-overs-inspector.png" "The Voice Overs list in the Yarn inspector." >}}
+
+On the left side, you have the linetag and the text of that line in the language selected in the dropdown menu. Use the part right to that to link this line with an AudioClip.
+
+The system also supports Addressables. You'll first need to enable it in Yarn Spinner's project settings window. (ADD REFERENCE)
+
+You can also click on the `Import Voice Over Audio Files` button to automatically link every linetag with it's coresponding audio clip for all languages. This will search for files that have the line's linetag in their filename and are located in a directory with the name of the language key (like `en-AU` for Australian English).
+
+{{<img "/docs/unity/img/v2.0/voice-overs-import.png" "The recommended voice over file and directory structure." >}}
+
+It is also possible to include the language key in the filename and put the files into a directory with any name but this is not recommended. For example, the linetag `34de2f` will collide with the language key `de` when you include German in your project language list.
