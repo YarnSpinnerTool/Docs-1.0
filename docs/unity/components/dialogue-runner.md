@@ -11,17 +11,16 @@ menu:
         weight: 2        
 ---
 
-The Dialogue Runner is responsible for loading Yarn Programs, running their contents, and communicating with the {{<xref "/docs/unity/components/dialogue-ui">}}. The Dialogue Runner is also responsible for managing the loaded string tables, and selecting which language to use.
+The Dialogue Runner is responsible for loading Yarn Programs, running their contents, and communicating with the {{<xref "/docs/unity/components/dialogue-ui">}}. The Dialogue Runner is also responsible for managing the loaded string tables and voice over assets. It uses the `ProjectSettings` class to retrieve the language preferences for the text and audio language to load the correct string table and voice over assets. You can set these in Yarn Spinner's {{<xref "/docs/unity/components/project-settings">}} `Language Preferences` section.
 
 ## The Inspector
 
 {{<img "/docs/unity/img/v1.1/dialogue-runner-inspector.png" >}}
 
 * **Yarn Scripts**: A list of [Yarn Programs]({{<ref "yarn-programs.md">}}). The nodes in these files will be loaded when the scene starts.
-* **Text Language**: Selects the string table to use for the dialogue, based on the language code. Specify the same language code that appears after the string table; for example, if your string table contains "(de)" at the end, enter "de" here.
   * If this field is left blank, the [base language]({{<ref "yarn-programs.md#localisations">}}) is used.
 * **Variable Storage**: The [variable storage object]({{<ref "variable-storage.md" >}}) that this dialogue runner will use to store and retrieve values from.
-* **Dialogue UI**: The [dialogue UI]({{<ref "dialogue-ui.md">}}) that this dialogue runner will communicate with.
+* **Dialogue Views**: The views that are used to present the content of the dialogue to the user. For example, the [dialogue UI]({{<ref "dialogue-ui.md">}}) will present the text of the dialogue on the screen. ADD VOICE OVER VIEW HERE. You can create your own view classes by inheriting from the class `DialogueViewBase` API LINK HERE.
 * **Start Node**: The name of the node that will be run when the `StartDialogue` method is run without a parameter, or if **Start Automatically** is turned on.
   * If this field is blank, it will default to `Start`.
 * **Start Automatically**: If this is turned on, the node specified in `Start Node` will start running.
