@@ -64,7 +64,7 @@ An example of this is shown in Figure 2:
 
 </figure>
 
-Once you have the generated `.csv`, you can translate the `text` column of each of the lines as needed. When the [Dialogue Runner]({{<ref "dialogue-runner.md#inspector">}})'s Text Language property is set to the language used by that string table, the corresponding text will be used.
+Once you have the generated `.csv`, you can translate the `text` column of each of the lines as needed.
 
 ## Localising inline expressions
 
