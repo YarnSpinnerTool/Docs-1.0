@@ -23,7 +23,7 @@ Settings made in this part are written to your ProjectSettings folder of your Un
 
 ## Language Preferences
 
-As soon as you have added languages to your `Project Languages` list, you can define a text and audio language that you prefer to use for your editor session. You can change these settings in play mode and they'll be applied as soon as the DialogueRunner starts the next line.
+As soon as you have added languages to your `Project Languages` list, you can define a text and audio language that you prefer to use for your editor session. You can change these settings in play mode and they'll be applied as soon as the DialogueRunner starts the next line. When no preferences are stored in the PlayerPrefs, the DialogueRunner will fallback to the `Base Language`.
 
 These settings will be stored in your PlayerPrefs. When creating an option menu for your project, it is recommended to read from and write to exactly these keys from the PlayerPrefs.
 
