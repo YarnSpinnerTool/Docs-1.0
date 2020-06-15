@@ -86,6 +86,10 @@ When translating a line into a different language, you can move or re-order the 
 
 ## Localising format functions
 
+{{<note>}}
+This feature has been deprecated, and is replaced with markup.
+{{</note>}}
+
 [Format functions]({{<ref "syntax.md#format-functions">}}) allow Yarn Spinner to replace text in a line, based on the value of a variable. 
 
 When generating a string table, format functions are preserved in their entirety. This is because different languages have different requirements; for example, while English only has two cardinal plural cases (*one* and *other*), Russian has four (*one*, *two*, *few* and *many*). Keeping the format function in the string table allows as a translator to rewrite the function to suit the needs of the language they're working in.
