@@ -22,33 +22,31 @@ Just open Unity, import Yarn Spinner, and check the `Samples` folder!
 
 **These samples were built as examples to teach and demo specific functionality and best practices, and they aren't complete enough to function as full project templates for entire games.** Again, we want to stress that Yarn Spinner isn't a complete game-making toolkit! It's just a lightweight framework for handling game dialogue. You still have to build the rest of your game.
 
-(TODO: space GIF)
+{{< img "v2.0.0/SpaceSample.gif" "3D speech bubble example" >}}
 
-`Space` is a basic 2D sidescroller that demos a basic player controller and NPC interaction, and how to manage multiple Yarn scripts across multiple characters.
+`Space` is a basic 2D sidescroller that implements a basic player controller with keyboard input, NPC interaction, voice over. It also demos how to manage multiple Yarn scripts across multiple characters and have them interact.
 
-(TODO: voice over gif)
-
-`Voice Over` demos the built-in voice over and localization system, with support for FMOD audio tables.
-
-(TODO: 3D gif)
+{{< img "v2.0.0/YarnSpinner3dExample.gif" "3D speech bubble example" >}}
 
 `3D` shows how to dynamically position speech bubbles above characters in the game world, much like in the top-down 3D game A Short Hike. It probably works in 2D with minimal changes, with results similar to Night In The Woods.
 
-(TODO: phone chat GIF)
+{{< img "v2.0.0/PhoneChatExample.gif" "phone chat app example" >}}
 
-`PhoneChat` uses a helper script to clone new message bubbles, which mimics a text message styled phone app. It also uses Yarn Commands to set the current speaker, an alternate way to define who is talking.
+`PhoneChat` uses a second script to clone new message bubbles, which mimics a text message styled phone app. It also uses Yarn Commands to set the current speaker, an alternate way to define who's talking.
 
-(TODO: visual novel GIF)
+{{< img "v2.0.0/VisualNovelSample.gif" "visual novel sample" >}}
 
 `VisualNovel` features extensive use of Yarn Commands to implement a surprisingly versatile Ren'py inspired framework for making visual novels. Even if you're not making a visual novel, you might learn something from the implementation. Its custom commands are documented on this page below.
 
 ## Visual Novel documentation ##
 
-Importing character sprites: for reference, the sample character sprites are about 600 x 1200 pixels. Because they are instantiated automatically, the default sprite settings matter a lot. Some suggested importer settings:
+Importing character sprites: for reference, the sample character sprites are about 600 x 1200 pixels. Because sprites are instantiated automatically, the default sprite import settings matter a lot. Some suggested importer settings:
 
 - Texture Type: Sprite
 - Pixels Per Unit: 165 (try different numbers until the size feels right)
 - Pivot: Bottom
+
+---
 
 ### `<<Scene (spriteName)>>`
 set background image to (spriteName)
