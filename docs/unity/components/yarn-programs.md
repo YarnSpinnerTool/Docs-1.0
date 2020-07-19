@@ -65,10 +65,21 @@ You can add voice over audio clips for every line in your Yarn asset. The list i
 
 On the left side, you have the linetag and the text of that line in the language selected in the dropdown menu. Use the part right to that to link this line with an AudioClip.
 
-The system also supports Addressables. You'll first need to enable it in Yarn Spinner's project settings window. (ADD REFERENCE)
+### Automatically Importing Voice Over Audio Clips
 
 You can also click on the `Import Voice Over Audio Files` button to automatically link every linetag with it's coresponding audio clip for all languages. This will search for files that have the line's linetag in their filename and are located in a directory with the name of the language key (like `en-AU` for Australian English).
 
 {{<img "/docs/unity/img/v2.0/voice-overs-import.png" "The recommended voice over file and directory structure." >}}
 
 It is also possible to include the language key in the filename and put the files into a directory with any name but this is not recommended. For example, the linetag `34de2f` will collide with the language key `de` when you include German in your project language list.
+
+### Referencing Voice Over Audio Clips via Addressables
+
+The system also supports Addressables. This gives you more control over how the voice over audio clips are packaged and loaded by grouping certain clips into banks.
+
+To use Addressables for referencing your voice overs, you'll first need to add the `Addressables` package (v1.8.3 or later) to your Unity project via the `Package Manager`. After that, Yarn Spinner's code needs to be aware of the existence of the Addressables package. If you are using Unity 2019 or newer, this will be done for you automatically. If you are using Unity 2018, you'll need to go to `Edit->Project Settings->Player->Other Settings->Scripting Define Symbols` and add `ADRESSABLES`.
+
+You can now switch between directly referencing voice over audio clips or using Addressables instead by changing the coresponding setting in Yarn Spinner's project settings window. 
+{{<img "/docs/unity/img/v2.0/addressables-settings.png" "Enabling or disabling the Addressables feature for voice over audio clips." >}}
+
+You can also wipe any direct or addressable references on all your yarn files should you decide to switch during production. The automatic importing of voice over audio clips will also work when using Addressables.

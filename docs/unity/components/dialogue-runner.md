@@ -20,7 +20,7 @@ The Dialogue Runner is responsible for loading Yarn Programs, running their cont
 * **Yarn Scripts**: A list of [Yarn Programs]({{<ref "yarn-programs.md">}}). The nodes in these files will be loaded when the scene starts.
   * If this field is left blank, the [base language]({{<ref "yarn-programs.md#localisations">}}) is used.
 * **Variable Storage**: The [variable storage object]({{<ref "variable-storage.md" >}}) that this dialogue runner will use to store and retrieve values from.
-* **Dialogue Views**: The views that are used to present the content of the dialogue to the user. For example, the [dialogue UI]({{<ref "dialogue-ui.md">}}) will present the text of the dialogue on the screen. ADD VOICE OVER VIEW HERE. You can create your own view classes by inheriting from the class `DialogueViewBase` API LINK HERE.
+* **Dialogue Views**: The views that are used to present the content of the dialogue to the user. For example, the [dialogue UI]({{<ref "dialogue-ui.md">}}) will present the text of the dialogue on the screen. ADD VOICE OVER VIEW HERE. You can create your own view classes by inheriting from the class `DialogueViewBase` !!API LINK HERE!!.
 * **Start Node**: The name of the node that will be run when the `StartDialogue` method is run without a parameter, or if **Start Automatically** is turned on.
   * If this field is blank, it will default to `Start`.
 * **Start Automatically**: If this is turned on, the node specified in `Start Node` will start running.
@@ -52,4 +52,3 @@ public class NPC : MonoBehaviour {
     }
 }
 ```
-

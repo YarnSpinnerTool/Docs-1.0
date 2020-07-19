@@ -19,12 +19,15 @@ You can add a new language to your project by selecting it from the dropdown lis
 
 All languages in that list have a checkbox to their right indicating if that language also has voice overs.
 
-Settings made in this part are written to your ProjectSettings folder of your Unity project to the file `YarnProjectSettings.json`. The `ProjectSettings` class can be used to retrieve that list which can be useful for instance when creating option menus.
+Settings made in this part are written to your ProjectSettings folder of your Unity project to the file `YarnProjectSettings.json`. The `ProjectSettings` class can be used to retrieve that list which can be useful for instance when creating audio language or text language settings in your game's options menu.
 
 ## Language Preferences
 
 As soon as you have added languages to your `Project Languages` list, you can define a text and audio language that you prefer to use for your editor session. You can change these settings in play mode and they'll be applied as soon as the DialogueRunner starts the next line. When no preferences are stored in the PlayerPrefs, the DialogueRunner will fallback to the `Base Language`.
 
-These settings will be stored in your PlayerPrefs. When creating an option menu for your project, it is recommended to read from and write to exactly these keys from the PlayerPrefs.
+These settings will be stored in your PlayerPrefs. When creating an option menu for your project, it is recommended to read from and write to exactly these keys from the PlayerPrefs. The following preferences are being stored and retrieved:
 
-There is a main menu in Yarn Spinner's example files demonstrating how to set this up.
+* `Yarn-TextLanguage` - the preferred text language
+* `Yarn-AudioLanguage` - the preferred audio language
+
+There is a main menu in Yarn Spinner's example content demonstrating how to set this up.
