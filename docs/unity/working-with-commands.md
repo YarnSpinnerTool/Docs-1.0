@@ -85,9 +85,7 @@ If you save this in a file called `CharacterMovement.cs`, create a new game obje
 // will print "Jumping!" in the console
 ```
 
-You can also use methods that take parameters. All parameters must be `string`s, and when you call the command, you must provide the same number of parameters as the method expects.
-
-For example, consider this method:
+You can also use methods that take parameters. For example, consider this method:
 
 ```csharp
 
@@ -104,22 +102,45 @@ This command could be called like this:
 <<walk MyCharacter StageLeft>> // walk to the position of the object named 'StageLeft'
 ```
 
+You must provide as many parameters as the method expects to receive. Methods with optional parameters are supported; if you don't provide a value for an optional parameter in your Yarn script, the parameter's default value will be used, just like when you call the method from C#.
+
+#### Supported Parameter Types
+
+Parameters are allowed to be any of the following types:
+
+* `string`
+* `integer`
+* `double`
+* `float`
+* `bool`
+* Any other type that implements the [IConvertible](https://docs.microsoft.com/en-us/dotnet/api/system.iconvertible) interface
+* `GameObject`
+* `Component`
+
+If a parameter is a `GameObject`, Yarn Spinner will search the scene for an object whose name matches the parameter you provided. If one isn't found, the value `null` will be passed.
+
+If a parameter is a `Component` (or any of its subclasses, like `Transform` or `Rigidbody`), Yarn Spinner will search the scene for an object with the given name, and then look for an object of the type of the parameter. If an object with the right name can't be found, or if it can but it doesn't have the right component, the value `null` will be passed.
+
+
+{{<note>}}
+If a parameter is any other supported type, it will be converted from a `string` using the [`Convert.ChangeType`](https://docs.microsoft.com/en-us/dotnet/api/system.convert.changetype#System_Convert_ChangeType_System_Object_System_Type_System_IFormatProvider_) method. The invariant culture will be used as the format provider to perform the conversion.
+{{</note>}}
+
+#### Using Coroutines
+
+You can make the Dialogue Runner wait for your commands to finish doing something before continuing. For example, you might want to have a command that makes a character walk to a point, and the Dialogue Runner should wait until that's done.
+
+If the method you provide is a [`Coroutine`](https://docs.unity3d.com/Manual/Coroutines.html), the Dialogue Runner will wait for the coroutine to finish before continuing.
 
 ### Adding commands through code
 
 You can also add new commands directly to a Dialogue Runner, using the `AddCommandHandler` method.
 
-There are two versions of the `AddCommandHandler` method: one for *non-blocking* commands, and one for *blocking* commands. When your Yarn script calls a blocking command, the dialogue waits until the work is done. Non-blocking commands don't make your Yarn script wait - after the command is called, the script moves on to the next line right away.
+When you call `AddCommandHandler`, you provide two parameters the name of the command, and a [delegate](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/delegates/) (that is, a reference to a method, or an in-line function) to run when the command is called.
 
-Both versions of `AddCommandHandler` take two parameters: the name of the command, and a [delegate](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/delegates/) (that is, a reference to a method, or an in-line function) to run when the command is called. A command will either be blocking or non-blocking depending on the method signature of the delegate.
+The delegate can take up to 6 parameters. These parameters can be any of the [supported parameter types](#supported-parameter-types).
 
-#### Non-blocking commands
-
-To create a new non-blocking command, create a method that returns `void`, and takes a single parameter: an array of `string`s. This array will contain all of the parameters that were included after the name of the command. It's up to your function to convert these strings to other types, like numbers or references to game objects.
-
-Once this method returns, the Dialogue Runner will continue executing code.
-
-For example, to create a non-blocking command that makes the main camera look at an object, create a new C# script in Unity with the following code:
+For example, to create a command that makes the main camera look at an object, create a new C# script in Unity with the following code:
 
 ```csharp
 public class CustomCommands : MonoBehaviour {    
@@ -129,30 +150,19 @@ public class CustomCommands : MonoBehaviour {
 
     public void Awake() {
 
-        // Create a new command called 'camera_look', which looks at a target.
+        // Create a new command called 'camera_look', which looks
+        // at a target.
         dialogueRunner.AddCommandHandler(
-            "camera_look",     // the name of the command
-            CameraLookAtTarget // the method to run
+            "camera_look",
+            (GameObject target) => {
+                // Make the main camera look at this target
+                Camera.main.transform.LookAt(target.transform);
+
+                // The dialogue runner will continue immediately
+                // after returning from this method                
+            }             
         );
     }
-
-    // The method that gets called when '<<camera_look>>' is run.
-    private void CameraLookAtTarget(string[] parameters) {
-
-        // Take the first parameter, and use it to find the object
-        string targetName = parameters[0];
-        GameObject target = GameObject.Find(targetName);
-
-        // Log an error if we can't find it
-        if (target == null) {
-            Debug.LogError($"Cannot make camera look at {targetName}:" + 
-                "cannot find target");
-            return;
-        }
-
-        // Make the main camera look at this target
-        Camera.main.transform.LookAt(target.transform);
-    }    
 }
 ```
 
@@ -164,11 +174,12 @@ You can then call this method like this:
 <<camera_look LeftMarker>> // make the camera look at an object named LeftMarker
 ```
 
-#### Blocking Commands
+#### Using Coroutines
 
-Blocking commands are commands that make Yarn Spinner wait. Execution of your Yarn script won't continue until the command indicates that it's done.
+Just as with commands you register using the `YarnCommand` attribute, you can make the Dialogue Runner wait for your command to finish by using coroutines.
 
-To create a new blocking command, create a new method that takes *two* parameters: an array of `string`s, and a `System.Action`. The array of strings is the list of parameters that were passed to the command, and the `Action` is a delegate that your method calls when the work is done. Yarn Spinner won't run any more code until you call the `Action`.
+* If the delegate you provide returns `void`, the Dialogue Runner will continue running your code as soon as the delegate returns.
+* If the delegate returns a [`Coroutine`](https://docs.unity3d.com/Manual/Coroutines.html), the Dialogue Runner will wait until that coroutine finishes, and then contintue running your code.
 
 For example, here's how you'd write your own custom implementation of `<<wait>>`. (You don't have to do this in your own games, because `<<wait>>` is already added for you, but this example shows you how you'd do it yourself.)
 
@@ -180,31 +191,21 @@ public class CustomWaitCommand : MonoBehaviour {
 
     public void Awake() {
 
-        // Create a new command called 'custom_wait', which waits for one second.
+        // Create a new command called 'custom_wait', which 
+        // waits for one second.
         dialogueRunner.AddCommandHandler(
             "custom_wait",
-            CustomWait
+            (float duration) => { 
+                return StartCoroutine(CustomWait(duration))
+            }
         );
     }
 
-    // The method that gets called when '<<custom_wait>>' is run.
-    private void CustomWait(string[] parameters, System.Action onComplete) {
-
-        // Start a coroutine that waits for one second:
-        StartCoroutine(DoWait(onComplete));
-
-        // Because this method takes a System.Action parameter, it's a blocking
-        // command. Yarn Spinner will wait until onComplete is called.
-    }    
-
-    private IEnumerator DoWait(System.Action onComplete) {
+    private IEnumerator CustomWait() {
 
         // Wait for 1 second
         yield return new WaitForSeconds(1.0);
-
-        // Call the completion handler
-        onComplete();
-
+        
         // Yarn Spinner will now continue running!
     }
 }
@@ -216,5 +217,48 @@ This new method, once registered with a Dialogue Runner, can be called like this
 <<custom_wait>> // Waits for one second, then continues running
 ```
 
-Note that if you define a custom command that takes a completion handler, you must call the completion handler after the work is done. If you don't, Yarn Spinner will never continue running.
+{{<note>}}
+Note that you must *return* the coroutine - that is, you must return the value that `StartCoroutine` returns. If you just call `StartCoroutine` and don't return its value, the coroutine will be started, but the Dialogue Runner won't wait for it to finish.
+{{</note>}}
+
+#### Using Methods
+
+In addition to using delegates, you can also provide a method to the `AddCommandHandler` method. 
+
+There are a couple of reasons you might want to do this: if you use a method rather than a delegate, your command can have optional parameters. Additionally, it can keep your code a little tidier, because you won't have code nested inside function calls.
+
+If you use a method, and that method takes parameters, you'll need to specify their types when calling `AddCommandHandler`. (You don't need to do this when you use a delegate.)
+
+Methods can return `void`, or a `Coroutine`, just like command delegates can.
+
+For example, here's a command that takes two parameters: a string, and an optional integer:
+
+```csharp
+public class CustomMethodCommand : MonoBehaviour {    
+
+    // Drag and drop your Dialogue Runner into this variable.
+    public DialogueRunner dialogueRunner;
+
+    public void Awake() {
+
+        // Create a new command called 'add_string_and_int', 
+        // which logs its two parameters:
+        dialogueRunner.AddCommandHandler<string, int>(
+            "add_string_and_int",
+            AddStringAndInteger
+        );
+    }
+
+    private void AddStringAndInteger(string str, int i = 5) {
+        Debug.Log($"String: {str}, int: {i}");        
+    }
+}
+```
+
+This command can be run from your Yarn script like this:
+
+```yarn
+<<add_string_and_int hello 1>> // logs "String: hello, int 1"
+<<add_string_and_int bye>> // logs "String: bye, int 5"
+```
 
