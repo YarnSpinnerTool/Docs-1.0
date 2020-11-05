@@ -12,7 +12,7 @@ menu:
         parent: "writing"        
 ---
 
-There are two options for writing Yarn your scripts.
+There are two options for writing your Yarn scripts.
 
 ## The Yarn Editor
 
