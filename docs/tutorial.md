@@ -90,7 +90,7 @@ Let's take a look at what that node contains. Here's the entire text of it:
 [[See you later.|Sally.Exit]] #line:0facf7
 ```
 
-Take a second now to look at this code, and get a feel for is structure.
+Take a second now to look at this code, and get a feel for its structure.
 
 ### Lines and Logic
 
