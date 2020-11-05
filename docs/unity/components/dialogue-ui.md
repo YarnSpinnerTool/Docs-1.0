@@ -23,7 +23,7 @@ The Dialogue UI is responsible for delivering content to the player, receiving o
   * The Dialogue UI expects each button to have a [`Text`](https://docs.unity3d.com/Packages/com.unity.ugui@1.0/manual/script-Text.html) or a TextMeshPro [`TMP_Text`](http://digitalnativestudios.com/textmeshpro/docs/textmeshpro-component/) as a child object. The text in the button will be set to the text of the relevant option.
   * You don't need to set an On Click handler for the buttons - the Dialogue UI will take care of this for you.
 * **On Dialogue Start**: A Unity Event that will be called when dialogue starts.
-  * Use this to do things like change your camera, disble gameplay UI, and other tasks you might need to do when dialogue begins.
+  * Use this to do things like change your camera, disable gameplay UI, and other tasks you might need to do when dialogue begins.
 * **On Dialogue End**: A Unity Event that will be called when dialogue ends.
 * **On Line Start**: A Unity Event that will be called when a line is about to start being displayed.
 * **On Line Finish Displaying**: A Unity Event that will be called when the line has finished being presented; that is, all of the text is now on the screen.

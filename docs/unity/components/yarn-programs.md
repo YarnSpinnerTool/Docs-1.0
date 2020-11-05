@@ -16,7 +16,7 @@ A Yarn Program is the compiled form of your `.yarn` script. Yarn Spinner for Uni
 
 ## String Tables
 
-As part of the compilation process, the Yarn Spinner compiler separates your Yarn script into two pieces: the code, and the *string table*. The string table contains the content that the player actually sees, like the lines an options; the code contains the instructions on what to show and when. The Yarn Program is an on-disk asset that contains the code, as well as the reference to the string table.
+As part of the compilation process, the Yarn Spinner compiler separates your Yarn script into two pieces: the code, and the *string table*. The string table contains the content that the player actually sees, like the lines and options; the code contains the instructions on what to show and when. The Yarn Program is an on-disk asset that contains the code, as well as the reference to the string table.
 
 String tables are `TextAssets`. They contain all of the lines that were found in the script, stored in comma-separated values format.
 
