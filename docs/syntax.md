@@ -18,7 +18,7 @@ It is not intended to be a tutorial - see [here]({{< ref "tutorial.md" >}}) for 
 Yarn is a programming language designed for dialogue. This means it has to follow some rules, so a computer can make sense of it.
 
 Yarn files are broken up into nodes. Each node has multiple different statements that make it up.
-In general, Yarn Spinner treats each new line in the Yarn file as a separate element. it needs to work out what that may be.
+In general, Yarn Spinner treats each new line in the Yarn file as a separate element. It needs to work out what that may be.
 
 ## Nodes
 
@@ -249,12 +249,12 @@ This means if you give a variable the value of `1` when you get it back out from
 #### Text
 
 Text inside variables can be anything you want but must be contained with quotation marks.
-This means that while `<<set $var to "hello">>` is valid, `<<set $var to hello>>` is not valid.
+This means that while `<<set $var to "hello">>` is valid, `<<set $var to hello>>` is not.
 
 #### `True` and `False`
 
 Variables can be set to be true or false using the keywords `true` or `TRUE`, and `false` and `FALSE`.
-These are case sensitive, so `<<set $var to true>>` will work, `<<set $var to True>>` will not work.
+These are case sensitive, so `<<set $var to true>>` will work, but `<<set $var to True>>` will not.
 
 ## Conditionals
 
@@ -286,7 +286,7 @@ Learn more about conditionals in {{< xref "/docs/writing/controlling" >}}.
 
 ### `if`, `elseif`, `else` and `endif` 
 
-The `if` statement opens a conditional and is comprised of the `<<` command opening keyword followed immediately by the `if` keyword, then goes an expression that controls the `if` and finally the command close keyword `>>`.
+The `if` statement opens a conditional and is comprised of the `<<` command opening keyword followed immediately by the `if` keyword, then an expression that controls the `if` and finally the command close keyword `>>`.
 
 Any lines that go between the `if` and the next part of the conditional, so either an `elseif`, an `else`, or an `endif`, is shown if the expression is ultimately true.
 
@@ -367,7 +367,7 @@ The order of operations is as follows:
 ## Commands
 
 Commands are a way of Yarn Spinner communicating back to the game that events have happened that need to be handled.
-These are often used to trigger achievements and to move characters and cameras around to where thye need to be.
+These are often used to trigger achievements and to move characters and cameras around to where they need to be.
 
 Commands start by having the command opening symbol `<<` then any text you want sent over to the game, and finish with the command close symbol `>>`.
 As an example:
