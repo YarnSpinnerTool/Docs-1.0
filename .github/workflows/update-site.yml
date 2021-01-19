@@ -25,4 +25,4 @@ jobs:
           token: ${{ secrets.REPO_PAT }}
           repository: YarnSpinnerTool/yarnspinner.dev
           event-type: docs-updated
-          client-payload: '{ref: "${{ github.ref }} "}'
+          client-payload: '{"ref": "${{ github.ref }}"}'
