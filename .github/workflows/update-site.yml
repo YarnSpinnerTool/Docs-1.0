@@ -22,7 +22,7 @@ jobs:
       - name: Notify Site Repo
         uses: peter-evans/repository-dispatch@v1
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.REPO_PAT }}
           repository: YarnSpinnerTool/yarnspinner.dev
           event-type: docs-updated
           client-payload: '{"ref": "${{ github.ref }}"}'
