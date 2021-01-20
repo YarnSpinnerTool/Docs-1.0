@@ -48,7 +48,7 @@ public class RandomNumberInYarn : MonoBehaviour {
 }
 ```
 
-And now add the function to the Dialogue Runner with `DialogueRunner.AddFunction()` and a [lambda expression](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/lambda-expressions):
+And in the same script's `Start()` method, notify the Dialogue Runner with `DialogueRunner.AddFunction()` and a [lambda expression](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/lambda-expressions):
 
 ```csharp
     void Start() {
@@ -92,7 +92,16 @@ public class NodeVisitedTracker : MonoBehaviour {
 }
 ```
 
-Given a node name, `WasVisited()` tells us whether that node name is in our visited list already, returning `true` or `false`. We register this function with the Dialogue Runner:
+Let's add more to the script. Given a node name, `WasVisited()` tells us whether that node name is in our visited list already, returning `true` or `false`.
+
+```csharp
+    // the function we will call from the Yarn script
+    public bool WasVisited(string nodeName) {
+        return _visitedNodes.Contains(nodeName);
+    }
+```
+
+Then in the script's `Start()` function, we register the script with the Dialogue Runner and a lambda expression.
 
 ```csharp
     public DialogueRunner dialogueRunner; // assign in inspector
@@ -102,17 +111,12 @@ Given a node name, `WasVisited()` tells us whether that node name is in our visi
         dialogueRunner.AddFunction("visited", (string nodeName) => {return WasVisited(nodeName);} );
         // note how the C# func name ("WasVisited") can be different from the Yarn func name ("visited")
     }
-
-    // the function we will call from the Yarn script
-    public bool WasVisited(string nodeName) {
-        return _visitedNodes.Contains(nodeName);
-    }
 ```
 
-Or instead, we could define and register the function all at once with an [anonymous method](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/statements-expressions-operators/anonymous-functions) and `delegate`:
+Or instead of declaring `WasVisited()` and using a lambda expression, we could also define and register the function all at once with an [anonymous method](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/statements-expressions-operators/anonymous-functions) and `delegate`:
 
 ```csharp
-    // an alternate way of registering the function "visited()"
+    // an alternate way of defining + registering the function "visited()"
     dialogueRunner.AddFunction("visited", 
         delegate(string nodeName) {
             return _visitedNodes.Contains(nodeName);
