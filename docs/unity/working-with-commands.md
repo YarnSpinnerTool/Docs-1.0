@@ -262,3 +262,19 @@ This command can be run from your Yarn script like this:
 <<add_string_and_int bye>> // logs "String: bye, int 5"
 ```
 
+## Functions
+
+As we've detailed above, Commands can only return `void` or a `Coroutine`, and must be called one at a time per line. But what if you want to return a `bool`, `string`, or `float` from C# and use it in an ``<<if>>``?
+
+[**Functions**]({{<ref "functions.md">}}) let you perform operations and return data back to the Yarn script. For example, if we define a `random()` function in C# and add it to the Dialogue Runner, then we can call that function to generate a random number from 1-100 in Yarn:
+
+```yarn
+// random() is a C# function that generates a random number from 1-100
+<<if random() > 50>>
+    You win the coin flip!
+<<else>>
+    You lost the coin flip!
+<<endif>>
+```
+
+For more on defining and implementing Functions, see [Functions]({{<ref "functions.md">}}).
