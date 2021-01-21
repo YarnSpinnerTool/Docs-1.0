@@ -15,7 +15,7 @@ menu:
 
 When running Yarn scripts in Unity, you can send instructions to your game and/or call C# code in two ways:
 
-- [Commands]({{<ref "working-with-commands.md">}}) are like stage directions sent to Unity via the [Dialogue Runner]({{ref "dialogue-runner.md">}}), but they are generally one-way. You *cannot* use Commands to return data back to the Yarn script. 
+- [Commands]({{<ref "working-with-commands.md">}}) are like stage directions sent to Unity via the [Dialogue Runner]({{<ref "dialogue-runner.md">}}), but they are generally one-way. You *cannot* use Commands to return data back to the Yarn script. 
 - However, **Functions** in Yarn scripts *can* call C# code via the Dialogue Runner *and* `return` data back to the Yarn script.
 
 ## Defining new Functions
