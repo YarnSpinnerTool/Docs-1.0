@@ -44,6 +44,16 @@ This sets the variable `$suspect_steve` to the number 1.
 
 If a variable hasn't been set, it will have the value `null`.
 
+### Variable Names
+
+Variable names must start with a letter, and can be composed of letters, numerals and the underscore character. If this is not sufficient for your purposes, you can "escape" a variable name using backticks to supply an arbitrary variable (as long as it doesn't contain a backtick). For example:
+
+```yarn
+Mae: Oh god. Steve Scriggins.
+<<set $`suspect_steve.noticed` to 1>>
+Lori: Yeah. Him.
+```
+
 ### Variables and your game
 
 Yarn Spinner doesn't manage the storage of information in variables itself. Instead, your game provides a *variable storage* object to Yarn Spinner before you start running dialogue. 
