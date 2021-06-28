@@ -57,7 +57,7 @@ An example of this: `myKey:myValue` has a key of `myKey` and a value of `myValue
 The `title` header defines the name of the node. All nodes must have a `title`.
 
 This header will look something like `title:nodename`.
-The name of the node, in this case `nodename`, needs to be unique across the entire project, and can be any combination of upper or lower case letters and numbers. Node titles can't have spaces.
+The name of the node, in this case `nodename`, needs to be unique across the entire project, and can be any combination of upper or lower case letters, numbers and underscores. Node titles can't have spaces and must begin with a letter.
 
 The value of this is case sensitive, so `nodename` is not the same as `nodeName`.
 
@@ -219,7 +219,7 @@ If `$hasKey` is `false` only the four directions will appear.
 
 You can store information inside variables.
 
-Variable names are any combination of letters and numbers preceded by the `$` symbol.
+Variable names are any combination of letters, numbers and underscores preceded by the `$` symbol. Variable names must begin with a letter.
 Variable names are case sensitive, so `$varName` and `$varname` are two different variables as far as Yarn Spinner is concerned.
 
 Variables are global in scope, so they exist across all nodes across all files.
