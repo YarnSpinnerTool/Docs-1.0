@@ -50,7 +50,7 @@ If you're using Unity 2019.3 or later, you can add the package directly:
 
 {{< img "v1.1/installing-package-manager-git-url.png" "Adding a package using a Git URL." >}}
 
-1. Enter the following URL: **`https://github.com/YarnSpinnerTool/YarnSpinner-Unity.git`**.
+1. Enter the following URL: **`https://github.com/YarnSpinnerTool/YarnSpinner-Unity.git`**
 2. The project will download and install.
 
 #### Unity 2018.4 to Unity 2019.2
